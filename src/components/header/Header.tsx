@@ -21,17 +21,16 @@ const Header = () => {
                     </ContainerItem>
 
                     <ContainerItem>
-                        <Links to='/about-us'>
-                            About us
-                        </Links>
-                    </ContainerItem>
-
-                    <ContainerItem>
                         <Links to='/see-later'>
                             See later
                         </Links>
                     </ContainerItem>
 
+                    <ContainerItem>
+                        <Links to='/about-me'>
+                            About me
+                        </Links>
+                    </ContainerItem>
                 </ContainerPlace>
             </Container>
         </div>

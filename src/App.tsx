@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Routes} from "react-router-dom";
 import {Route} from "react-router-dom";
 
 import Header from "./components/header/Header";
-import {HomePage} from './components/pages';
+import {HomePage, CatalogPage, AboutMePage} from './components/pages';
 
 
 function App() {
@@ -17,9 +17,9 @@ function App() {
 
                         <Route index element={<HomePage/>}/>
 
-                        <Route path={'catalog'}/>
+                        <Route path={'catalog'} element={<CatalogPage />}/>
 
-                        <Route path={'about-us'}/>
+                        <Route path={'about-me'} element={<AboutMePage/>}/>
 
                         <Route path={'see-later'}/>
 

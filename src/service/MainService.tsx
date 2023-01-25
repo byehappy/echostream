@@ -10,8 +10,13 @@ const MainService = () => {
             await request(`${_baseURL}users?login=${login}`)
         )
     }
+    const getGames = async(name: string | undefined) => {
+        return (
+            await request(`${_baseURL}games?name=${name}`)
+        )
+    }
 
-    return {getStreamer}
+    return {getStreamer,getGames}
 }
 
 

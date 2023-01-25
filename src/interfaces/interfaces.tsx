@@ -1,8 +1,8 @@
 export interface states{
     status: string,
     channel: object[],
-    error: string;
-    srcIframe:string;
+    srcIframe:string,
+    games:game[],
 
     bratishkinoff: stream[],
     koreshzy: stream[],
@@ -25,4 +25,10 @@ export interface resInf{
 
 export const SourceActionType = {
     setSource: 'Streams_Fetching_Success'
+}
+
+export interface game{
+    id:string,
+    name:string,
+    box_art_url:string,
 }

@@ -4,8 +4,8 @@ import {SourceActionType, states} from "../interfaces/interfaces";
 const initialState: states = {
     status: "loading",
     channel: [],
-    error: "",
     srcIframe:'bratishkinoff',
+    games: [],
 
     bratishkinoff: [],
     koreshzy: [],
@@ -44,6 +44,22 @@ function mainReducer(state = initialState, action: any) {
             return {
                 ...state,
                 srcIframe: action.payload,
+                status: 'idle'
+            }
+        case 'Game_Fetching_Loading':
+            return {
+                ...state,
+                status: 'loading'
+            }
+        case 'Game_Fetching_Error':
+            return{
+                ...state,
+                status:'error'
+            }
+        case 'Games_Fetching_Success':
+            return{
+                ...state,
+                games: [...state.games,action.game],
                 status: 'idle'
             }
         default:
