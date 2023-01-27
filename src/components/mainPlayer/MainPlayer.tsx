@@ -1,17 +1,10 @@
 import {ChannelList, Container, Player} from './MainPlayer.style';
 import PlayerItem from "../playerItem/PlayerItem";
-import {useDispatch, useSelector} from "react-redux";
-import MainService from '../../service/MainService';
-import {stream} from "../../interfaces/interfaces";
-import {streamsFetchingSuccess} from '../../actions';
-import {useCallback, useEffect,} from "react";
+import {useSelector} from "react-redux";
 
 
 const MainPlayer = () =>{
-    const dispatch = useDispatch()
-    const {getStreamer} = MainService();
-    const {srcIframe,status,bratishkinoff, koreshzy, frametamer666, jesusavgn, buster}: any = useSelector(state => state);
-    const arrChannel = ['bratishkinoff', 'koreshzy', 'frametamer666', 'jesusavgn', 'buster'];
+    const {srcIframe,status,bratishkinoff, koreshzy, frametamer666, jesusavgn, razdva}: any = useSelector(state => state);
     function renderItems (arr: object[]) {
         return arr.map(({...props}, id) => {
             return (
@@ -19,20 +12,8 @@ const MainPlayer = () =>{
             )
         })
     }
-    const takeInf = useCallback(()=>{
-        arrChannel.forEach((item)=>{
-            getStreamer(item)
-                .then(res => res.data.forEach((item:stream) =>{
-                    dispatch(streamsFetchingSuccess(item.login,item))
-                }))
-        })
-    }, [])
 
-useEffect(()=>{
-    takeInf();
-}, [])
-
-    const elements = renderItems([bratishkinoff, koreshzy, frametamer666, jesusavgn, buster])
+    const elements = renderItems([bratishkinoff, koreshzy, frametamer666, jesusavgn, razdva])
 
     let link:string = `https://player.twitch.tv/?channel=${srcIframe}&parent=streamernews.example.com`
     return(

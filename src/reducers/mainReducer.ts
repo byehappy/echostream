@@ -3,7 +3,7 @@ import {SourceActionType, states} from "../interfaces/interfaces";
 
 const initialState: states = {
     status: "loading",
-    channel: [],
+    channels: [],
     srcIframe:'bratishkinoff',
     games: [],
 
@@ -11,7 +11,7 @@ const initialState: states = {
     koreshzy: [],
     frametamer666: [],
     jesusavgn: [],
-    buster: []
+    razdva: []
 }
 
 function mainReducer(state = initialState, action: any) {
@@ -29,7 +29,7 @@ function mainReducer(state = initialState, action: any) {
         case 'Stream_Fetching_Success':
             return {
                 ...state,
-                channel: action.payload,
+                channels: action.payload,
                 status: 'idle'
             }
         case SourceActionType.setSource: {

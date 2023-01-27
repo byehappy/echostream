@@ -1,4 +1,4 @@
-import {stream} from "../interfaces/interfaces";
+import {channels, stream} from "../interfaces/interfaces";
 
 export const streamFetching = () =>{
     return{
@@ -11,10 +11,10 @@ export const streamFetchingError = () =>{
     }
 }
 
-export const streamFetchingSuccess = (stream: stream) =>{
+export const streamFetchingSuccess = (channel: any) =>{
     return{
         type: 'Stream_Fetching_Success',
-        payload:stream
+        payload:channel
     }
 }
 

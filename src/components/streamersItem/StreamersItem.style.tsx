@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 const TextBase= `
     font-family: 'Roboto Serif';
@@ -6,8 +5,9 @@ const TextBase= `
     color: #ffffff;
     `
 
-export const Container = styled(NavLink)`
+export const Container = styled.div`
   ${TextBase};
   word-wrap: break-word;
-  width: 12.5rem;
+  width: 25rem;
+  margin: auto;
 `

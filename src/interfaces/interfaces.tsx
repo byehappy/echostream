@@ -1,14 +1,13 @@
 export interface states{
     status: string,
-    channel: object[],
+    channels: channels[],
     srcIframe:string,
     games:game[],
-
     bratishkinoff: stream[],
     koreshzy: stream[],
     frametamer666: stream[],
     jesusavgn: stream[],
-    buster: stream[]
+    razdva: stream[]
 }
 
 export  interface stream{
@@ -31,4 +30,22 @@ export interface game{
     id:string,
     name:string,
     box_art_url:string,
+}
+export interface resContextGames{
+    data: game[]
+}
+export interface resContextSteamers{
+    bratishkinoff: stream[],
+    koreshzy: stream[],
+    frametamer666: stream[],
+    jesusavgn: stream[],
+    razdva: stream[]
+}
+export interface channels{
+    id: string;
+    user_name:string;
+    game_name:string;
+    type:string;
+    tittle:string;
+    thumbnail_url:string;
 }
