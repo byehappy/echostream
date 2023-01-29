@@ -8,36 +8,36 @@ import {HomePage, CatalogPage, AboutMePage} from './components/pages';
 import GameCardContext from "./components/context/GamesContext";
 import StreamersContext from "./components/context/MainStreamers";
 import StreamersList from "./components/streamersList/StreamersList";
+import {SkeletonTheme} from "react-loading-skeleton";
 
 
 function App() {
     return (
         <StreamersContext>
-        <GameCardContext>
-        <Router>
-            <div className="App">
-                <Header/>
+            <GameCardContext>
+                <Router>
+                    <div className="App">
+                        <Header/>
+                            <Routes>
+                                <Route path={'/'}>
 
-                <Routes>
-                    <Route path={'/'}>
+                                    <Route index element={<HomePage/>}/>
 
-                        <Route index element={<HomePage/>}/>
+                                    <Route path={'catalog'} element={<CatalogPage/>}/>
+                                    <Route path={'/game/:gameId'} element={<StreamersList/>}/>
 
-                        <Route path={'catalog'} element={<CatalogPage />}/>
-                        <Route path={'/game/:gameId'} element={<StreamersList/>}/>
+                                    <Route path={'about-me'} element={<AboutMePage/>}/>
 
-                        <Route path={'about-me'} element={<AboutMePage/>}/>
+                                    <Route path={'see-later'}/>
 
-                        <Route path={'see-later'}/>
+                                    <Route path={'404'}/>
 
-                        <Route path={'404'}/>
-
-                        <Route path={'*'}/>
-                    </Route>
-                </Routes>
-            </div>
-        </Router>
-        </GameCardContext>
+                                    <Route path={'*'}/>
+                                </Route>
+                            </Routes>
+                    </div>
+                </Router>
+            </GameCardContext>
         </StreamersContext>
     );
 }

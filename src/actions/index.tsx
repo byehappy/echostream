@@ -11,10 +11,11 @@ export const streamFetchingError = () =>{
     }
 }
 
-export const streamFetchingSuccess = (channel: any) =>{
+export const streamFetchingSuccess = (channel: any,pagination:any) =>{
     return{
         type: 'Stream_Fetching_Success',
-        payload:channel
+        channel:channel,
+        pagination:pagination
     }
 }
 
@@ -28,5 +29,11 @@ export const SwitchIframe = (srcIframe:string)=>{
     return{
         type: 'Switch_Iframe',
         payload:srcIframe
+    }
+}
+export const PictureStreamer = (image_url :any)=>{
+    return{
+        type:'Picture_Streamer',
+        payload:image_url
     }
 }

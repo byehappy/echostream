@@ -5,18 +5,16 @@ const TextBase =`
     font-family: 'Roboto Serif';
     font-style: 'normal';
     color: #ffffff;
-    font-size: 175%;
     `
 const LogoText = `
     font-family: 'Roboto Serif';
     font-style: 'normal';
     color: #ffffff;
-    font-size: 200%;
 `
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  Height: 95px;
+  Height: 4vw;
   margin: 0 auto ;
   justify-content: flex-start;
   align-items:center;
@@ -28,6 +26,7 @@ export const Logo = styled.div`
   align-items:center;
   white-space: nowrap;
   margin-right: 5%;
+  font-size: 2vw;
 `
 
 
@@ -44,6 +43,7 @@ export const ContainerItem = styled.li`
   margin: 5%;
     color:${(isActive) => isActive ? 'white' : 'grey'};
     text-decoration: none;
+  font-size: 1.5vw;
 `
 export const Links = styled(NavLink)`
   text-decoration: none;

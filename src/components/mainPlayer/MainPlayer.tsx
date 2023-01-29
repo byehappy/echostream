@@ -18,7 +18,7 @@ const MainPlayer = () =>{
     let link:string = `https://player.twitch.tv/?channel=${srcIframe}&parent=streamernews.example.com`
     return(
         <Container>
-            <Player src={link} name={'iframe'} frameBorder='0'/>
+            <Player src={link} name={'iframe'} frameBorder='0' allowFullScreen={true}/>
             <ChannelList>
                 {elements}
             </ChannelList>

@@ -3,6 +3,7 @@ export interface states{
     channels: channels[],
     srcIframe:string,
     games:game[],
+
     bratishkinoff: stream[],
     koreshzy: stream[],
     frametamer666: stream[],

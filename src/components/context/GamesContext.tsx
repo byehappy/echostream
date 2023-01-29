@@ -18,7 +18,7 @@ function GameCardContext(props:any){
             getGames()
                 .then(res => {
                     return res.data.forEach((item: game) => {
-                        item.box_art_url = item.box_art_url.replace('{width}', '200').replace('{height}', '250')
+                        item.box_art_url = item.box_art_url.replace('{width}', '180').replace('{height}', '270')
                         dispatch(gameFetchingSuccessful(item))
                     });
                 })

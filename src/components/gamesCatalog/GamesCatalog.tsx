@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import GamesItem from "../gamesItem/GamesItem";
 
 const GamesCatalog = () =>{
-    const {status,games}:any = useSelector(state => state);
+    const {status,games,pagination}:any = useSelector(state => state);
     function renderItems (arr: object[]) {
         return arr.map(({...props}, id) => {
             return (
@@ -20,6 +20,7 @@ const GamesCatalog = () =>{
             {elements}
         </Container>
     )
+
 }
 
 export default GamesCatalog;

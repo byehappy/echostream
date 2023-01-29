@@ -16,13 +16,20 @@ export const Container = styled.div`
   left: 0;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  padding-top: 10rem;
+  z-index: 999;
 `
 
 export const ContainerItem =styled.div`
-  background: white;
-  padding: 25px;
-  border-radius: 5px;
+  background: #393939;
+  width: 50%;
+  height: 30%;
+  padding: 3rem;
+  border-radius: 15px;
   border: 3px solid black;
-  ${TextBase}
+  ${TextBase},
+`
+export const Player = styled.iframe`
+  width: 100%;
+  height: 100%;
 `

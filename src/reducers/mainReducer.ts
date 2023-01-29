@@ -7,6 +7,7 @@ const initialState: states = {
     srcIframe:'bratishkinoff',
     games: [],
 
+
     bratishkinoff: [],
     koreshzy: [],
     frametamer666: [],
@@ -29,7 +30,8 @@ function mainReducer(state = initialState, action: any) {
         case 'Stream_Fetching_Success':
             return {
                 ...state,
-                channels: action.payload,
+                channels: action.channel,
+                pagination:action.pagination,
                 status: 'idle'
             }
         case SourceActionType.setSource: {
@@ -60,6 +62,12 @@ function mainReducer(state = initialState, action: any) {
             return{
                 ...state,
                 games: [...state.games,action.game],
+                status: 'idle'
+            }
+        case 'Picture_Streamer':
+            return {
+                ...state,
+                pictures:action.payload,
                 status: 'idle'
             }
         default:

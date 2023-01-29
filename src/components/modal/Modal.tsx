@@ -1,32 +1,36 @@
 import {createPortal} from "react-dom";
-import {useEffect, useMemo} from "react";
-import {Container,ContainerItem} from "./Modal.style";
+import React, {useEffect, useMemo, useRef} from "react";
+import {Container, ContainerItem, Player} from "./Modal.style";
 
-const modalRootElement = document.querySelector('#portal')
+const modalRootElement: any = document.querySelector('#portal')
 
-const Modal =(props:any) =>{
-    const {login,open,onClose} = props;
-    const elemnt = useMemo(() => document.createElement('div'),[])
-    let link:string= `https://player.twitch.tv/?channel=${login}&parent=streamernews.example.com`
-    useEffect(()=>{
-        if(open){ // @ts-ignore
-            modalRootElement.appendChild(elemnt)
+const Modal = (props: any) => {
+    const {login, open, onClose} = props;
+    const elemnt = useMemo(() => document.createElement('div'), [])
+    let link: string = `https://player.twitch.tv/?channel=${login}&parent=streamernews.example.com`
+    const ref = useRef() as React.MutableRefObject<HTMLInputElement>
 
-            return () => {
-                // @ts-ignore
-                modalRootElement.removeChild(elemnt);
+    useEffect(() => {
+        const checkOutside = (e: any) => {
+            if (e.target?.contains(ref.current) && e.target !== ref.current) {
+                onClose && onClose();
             }
+            return
         }
-    })
-
-    if(open){
-        return createPortal(<Container onClick={onClose}>
-            <ContainerItem>
-                <iframe src={link} frameBorder='0'/>
-            </ContainerItem>
-        </Container>
-            ,elemnt);
-    }
-    return null
+        document.addEventListener('click', checkOutside);
+        return () => {
+            document.removeEventListener('click', checkOutside)
+        }
+    }, [onClose])
+    return createPortal(<>
+            {open ?
+                <Container>
+                    <ContainerItem ref={ref}>
+                        <Player src={link} frameBorder='0' allowFullScreen={true}/>
+                    </ContainerItem>
+                </Container> : null}
+        </>
+        , modalRootElement);
 }
+
 export default Modal;
